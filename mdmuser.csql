@@ -25,7 +25,7 @@ users AS (
     mdmphonenumber,
     mdmisactive,
     mdmcountry,
-    mdmallowcaroluiaccess
+    mdmallowcaroluiaccess,
     CONTAINS_SUBSTR(stg.mdmname, 'Cafu') AS mdmDeleted
     --metadata--
   FROM
