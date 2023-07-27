@@ -26,7 +26,7 @@ users AS (
     mdmisactive,
     mdmcountry,
     mdmallowcaroluiaccess
-    --CONTAINS_SUBSTR(stg.mdmname, 'Cafu') AS mdmDeleted
+    CONTAINS_SUBSTR(stg.mdmname, 'Cafu') AS mdmDeleted
     --metadata--
   FROM
     fake_data,
