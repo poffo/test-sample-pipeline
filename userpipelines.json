@@ -3,7 +3,7 @@
     {
       "pipelineName": "user_main",
       "pipelineDescription": "Pipeline for user creation Through SQL Process",
-      "processScript": "mdmusercsql",
+      "processScript": "mdmuser.csql",
       "sendToSubscriptions": true,
       "clearBigQuery": true,
       "saveToCds": true,
