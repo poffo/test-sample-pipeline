@@ -1,0 +1,36 @@
+WITH fake_data AS (
+SELECT [
+    STRUCT('a15' as mdmId, null as mdmTenantId, "" as mdmEntityType, 0 as mdmCounterForEntity, 'Baggio mesmo phone Pele' AS mdmname, 'TENANT_ADMIN_ROLE' AS mdmroles, 'it_IT' AS mdmlocale, 'MALTA' AS mdmcountry, FALSE AS mdmshouldsendwelcomeemail, '["tri"]' AS mdmgroups, 'baggio@test.com' AS mdmlogin, 'penal10' AS mdmpassword, TRUE AS mdmshouldcreateuser, '+15500999045504' AS mdmphonenumber, TRUE AS mdmisactive, TRUE AS mdmallowcaroluiaccess),
+    STRUCT('a16' as mdmId, null as mdmTenantId, "" as mdmEntityType, 0 as mdmCounterForEntity, 'Valderrama mesmo phone Valderrama' AS mdmname, '' AS mdmroles, 'sp_SP' AS mdmlocale, 'CUBA' AS mdmcountry, TRUE AS mdmshouldsendwelcomeemail, '' AS mdmgroups, 'valderrama@test.com' AS mdmlogin, 'cabelera10' AS mdmpassword, TRUE AS mdmshouldcreateuser, '+5500999135513' AS mdmphonenumber, TRUE AS mdmisactive, TRUE AS mdmallowcaroluiaccess)
+] AS players
+),
+
+users AS (
+SELECT
+--'e9da7834c1f646019567ff9a079638d7' as mdmTenantId,
+mdmname,
+mdmroles,
+mdmlocale,
+mdmshouldsendwelcomeemail,
+mdmgroups,
+mdmlogin,
+mdmpassword,
+mdmshouldcreateuser,
+mdmphonenumber,
+mdmisactive,
+mdmcountry,
+mdmallowcaroluiaccess,
+CONTAINS_SUBSTR(stg.mdmname, 'Cafu') AS mdmDeleted
+--metadata--
+FROM
+fake_data,
+UNNEST(players) AS stg
+WHERE
+1 = 1
+--timestamp-- AND mdmCounterForEntity > {{start_from}}
+)
+
+SELECT
+*--, (mdmlogin IS NULL OR LENGTH(TRIM(mdmlogin)) = 0) AS mdmDeleted
+FROM
+users
