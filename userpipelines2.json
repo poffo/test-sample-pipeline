@@ -1,0 +1,46 @@
+{
+  "pipelines": [
+    {
+      "pipelineName": "user_main",
+      "pipelineDescription": "Pipeline for user creation Through SQL Process",
+      "processScript": "mdmuser.csql",
+      "sendToSubscriptions": true,
+      "clearBigQuery": true,
+      "saveToCds": true,
+      "outputDataModelName": "mdmuser",
+      "saveToUnified": true,
+      "cronExpressions": [
+        "0 */5 0 ? * * *"
+      ],
+      "sourceEntities": {
+        "dataModels": [
+          {
+            "dataModelName": "mdmuser"
+          }
+        ],
+        "stagings": []
+      }
+    },
+   {
+        "pipelineName": "user_main_2",
+        "pipelineDescription": "Pipeline for user creation Through SQL Process",
+        "processScript": "mdmuser2.csql",
+        "sendToSubscriptions": true,
+        "clearBigQuery": true,
+        "saveToCds": true,
+        "outputDataModelName": "mdmuser",
+        "saveToUnified": true,
+        "cronExpressions": [
+          "0 */5 0 ? * * *"
+        ],
+        "sourceEntities": {
+          "dataModels": [
+            {
+              "dataModelName": "mdmuser"
+            }
+          ],
+          "stagings": []
+        }
+      }
+  ]
+}
