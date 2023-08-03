@@ -1,9 +1,9 @@
 {
   "pipelines": [
     {
-      "pipelineName": "user_main",
+      "pipelineName": "user_main_2",
       "pipelineDescription": "Pipeline for user creation Through SQL Process",
-      "processScript": "mdmuser.csql",
+      "processScript": "mdmuser2.csql",
       "sendToSubscriptions": true,
       "clearBigQuery": true,
       "saveToCds": true,
@@ -22,9 +22,9 @@
       }
     },
    {
-        "pipelineName": "user_main_2",
+        "pipelineName": "user_main_3",
         "pipelineDescription": "Pipeline for user creation Through SQL Process",
-        "processScript": "mdmuser2.csql",
+        "processScript": "mdmuser3.csql",
         "sendToSubscriptions": true,
         "clearBigQuery": true,
         "saveToCds": true,
