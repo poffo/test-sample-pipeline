@@ -1,4 +1,4 @@
-mWITH fake_data AS (
+WITH fake_data AS (
   SELECT [
     STRUCT('a8' as mdmId, null as mdmTenantId, "" as mdmEntityType, 0 as mdmCounterForEntity, 'Taffarel' AS mdmname, '' AS mdmroles, 'pt_BR' AS mdmlocale, 'BRAZIL' AS mdmcountry, FALSE AS mdmshouldsendwelcomeemail, '["tetra","penta"]' AS mdmgroups, 'taffarel@test.com' AS mdmlogin, 'saiqueesua1' AS mdmpassword, TRUE AS mdmshouldcreateuser, '+5500999225522' AS mdmphonenumber, TRUE AS mdmisactive, TRUE AS mdmallowcaroluiaccess),
     STRUCT('a9' as mdmId, null as mdmTenantId, "" as mdmEntityType, 0 as mdmCounterForEntity, 'Mazinho mesmo phone Taffarel' AS mdmname, 'TENANT_ADMIN_ROLE' AS mdmroles, 'pt_BR' AS mdmlocale, 'BRAZIL' AS mdmcountry, FALSE AS mdmshouldsendwelcomeemail, '["tetra"]' AS mdmgroups, 'mazinho@test.com' AS mdmlogin, 'enceradeira8' AS mdmpassword, TRUE AS mdmshouldcreateuser, '+5500999225522' AS mdmphonenumber, TRUE AS mdmisactive, TRUE AS mdmallowcaroluiaccess),
