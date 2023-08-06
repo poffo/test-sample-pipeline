@@ -5,6 +5,7 @@ WITH fake_data AS (
 ),
 pictures AS (
   SELECT 
+    --'e9da7834c1f646019567ff9a079638d7' as mdmTenantId,
       stg.mdmId as mdmbarcode,
       stg.mdmname as mdmname,
       stg.mdmdocument as mdmimage,
