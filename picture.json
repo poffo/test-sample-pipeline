@@ -1,0 +1,25 @@
+{
+  "pipelines": [
+    {
+      "pipelineName": "pic_main",
+      "pipelineDescription": "Pipeline for imagem creation Through SQL Process",
+      "processScript": "mdmimage.csql",
+      "sendToSubscriptions": true,
+      "clearBigQuery": true,
+      "saveToCds": true,
+      "outputDataModelName": "mdmimage",
+      "saveToUnified": true,
+      "cronExpressions": [
+        "0 */15 0 ? * * *"
+      ],
+      "sourceEntities": {
+        "dataModels": [
+          {
+            "dataModelName": "mdmimage"
+          }
+        ],
+        "stagings": []
+      }
+    }
+  ]
+}
