@@ -5,10 +5,10 @@ WITH fake_data AS (
 ),
 pictures AS (
   SELECT 
-      stg.id as mdmbarcode,
-      stg.name as mdmname,
-      stg.document as mdmimage,
-      stg.name as mdmdescription
+      stg.mdmId as mdmbarcode,
+      stg.mdmname as mdmname,
+      stg.mdmdocument as mdmimage,
+      stg.mdmname as mdmdescription
       --metadata{image,image}--
   FROM
     fake_data,
