@@ -9,7 +9,7 @@ pictures AS (
       stg.name as mdmname,
       stg.document as mdmimage,
       stg.name as mdmdescription
-      --metadata{ds780588,test}--
+      --metadata{image,image}--
   FROM
     fake_data,
     UNNEST(image) AS stg
