@@ -6,9 +6,9 @@ WITH fake_data AS (
 pictures AS (
   SELECT 
     --'e9da7834c1f646019567ff9a079638d7' as mdmTenantId,
-      mdmId,
-      mdmname,
-      mdmdocument
+      stg.mdmId AS id,
+      stg.mdmname AS name,
+      stg.mdmdocument AS document
       --metadata--
   FROM
     fake_data,
