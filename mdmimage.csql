@@ -16,7 +16,6 @@ pictures AS (
     UNNEST(images) AS stg
   WHERE 1=1
   --timestamp-- and stg.mdmCounterForEntity > {{start_from}}
-  --tenantIds-- and mdmTenantId IN {{tenantIds}}
 )
 SELECT
   *--, (mdmId IS NULL OR LENGTH(TRIM(mdmId)) = 0) AS mdmDeleted
