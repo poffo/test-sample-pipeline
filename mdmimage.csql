@@ -8,8 +8,7 @@ pictures AS (
     --'e9da7834c1f646019567ff9a079638d7' as mdmTenantId,
       mdmId,
       mdmname,
-      mdmdocument,
-      mdmname
+      mdmdocument
       --metadata--
   FROM
     fake_data,
