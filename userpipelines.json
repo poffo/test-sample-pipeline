@@ -2,6 +2,7 @@
   "pipelines": [
     {
       "pipelineName": "user_main",
+      "carolAppName": "usertestingapp",
       "pipelineDescription": "Pipeline for user creation Through SQL Process",
       "processScript": "mdmuser.csql",
       "sendToSubscriptions": true,
@@ -9,6 +10,7 @@
       "saveToCds": true,
       "outputDataModelName": "mdmuser",
       "saveToUnified": true,
+      "checkExistsDataToProcess": true,
       "cronExpressions": [
         "0 */5 0 ? * * *"
       ],
