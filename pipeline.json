@@ -9,22 +9,21 @@
   },
   "pipelines": [
     {
-      "pipelineName": "product_main",
+      "pipelineName": "newunifproduct_main",
       "pipelineDescription": "Pipeline for the product table, that uses staging nlp_product",
       "outputDataModelName": "mdmproduct",
+      "checkExistsDataToProcess": true,
       "overlapDeltaMinutes": 30,
       "saveToCds": true,
       "saveToUnified": true,
       "saveToRealtime": true,
-      "sendToSubscriptions": true,
+      "sendToSubscriptions": false,
+      "useBatchNotification": false,
       "cronExpressions": [
-        "0 0/5 * ? * MON-FRI *",
-        "0 0/15 * ? * SAT,SUN *"
+        "0 0/3 * ? * MON-FRI *",
+        "0 0/2 * ? * SAT,SUN *"
       ],
-      "prepareScripts": [
-        "product_prepare.sql"
-      ],
-      "processScript": "product.sql",
+      "processScript": "audproduct.csql",
       "sourceEntities": {
         "dataModels": [
           {
@@ -47,14 +46,13 @@
       "saveToCds": true,
       "saveToUnified": true,
       "saveToRealtime": true,
+      "checkExistsDataToProcess": false,
+      "useBatchNotification": true,
       "sendToSubscriptions": true,
       "cronExpressions": [
-        "0 */1 0 ? * * *"
+        "0 * * ? * *"
       ],
-      "prepareScripts": [
-        "purchaseorder_prepare.sql"
-      ],
-      "processScript": "purchaseorder.sql",
+      "processScript": "audpurchase.csql",
       "sourceEntities": {
         "dataModels": [
           {
@@ -62,6 +60,40 @@
           }
         ],
         "stagings": [
+          {
+            "connectorName": "nlp",
+            "stagingName": "purchaseorder"
+          }
+        ]
+      }
+    },
+    {
+      "pipelineName": "newfarhorizon_main",
+      "pipelineDescription": "Far Horizon Data Model, that uses staging nlp_product",
+      "outputDataModelName": "mdmfarhorizon",
+      "overlapDeltaMinutes": 30,
+      "saveToCds": true,
+      "saveToUnified": true,
+      "saveToRealtime": true,
+      "sendToSubscriptions": true,
+      "checkExistsDataToProcess": false,
+      "useBatchNotification": true,
+      "cronExpressions": [
+        "0 0/3 * ? * MON-FRI *",
+        "0 0/2 * ? * SAT,SUN *"
+      ],
+      "processScript": "newfarhorizon.csql",
+      "sourceEntities": {
+        "dataModels": [
+          {
+            "dataModelName": "mdmfarhorizon"
+          }
+        ],
+        "stagings": [
+          {
+            "connectorName": "nlp",
+            "stagingName": "product"
+          },
           {
             "connectorName": "nlp",
             "stagingName": "purchaseorder"

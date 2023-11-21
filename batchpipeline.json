@@ -9,7 +9,7 @@
   },
   "pipelines": [
     {
-      "pipelineName": "product_main",
+      "pipelineName": "batchproduct_main",
       "pipelineDescription": "Pipeline for the product table, that uses staging nlp_product",
       "outputDataModelName": "mdmproduct",
       "overlapDeltaMinutes": 120,
@@ -41,9 +41,9 @@
       }
     },
     {
-      "pipelineName": "farhorizon_main",
-      "pipelineDescription": "Pipeline for the product table again, for batch partial process scenario",
-      "outputDataModelName": "mdmfarhorizon",
+      "pipelineName": "batchpurchasenewname_main",
+      "pipelineDescription": "Pipeline for the purchase table, that uses staging nlp_product",
+      "outputDataModelName": "mdmpurchaseorder",
       "overlapDeltaMinutes": 72,
       "saveToCds": true,
       "saveToUnified": true,
@@ -56,17 +56,17 @@
       "prepareScripts": [
         "purchaseorder_prepare.sql"
       ],
-      "processScript": "farhorizon.sql",
+      "processScript": "audpurchase.csql",
       "sourceEntities": {
         "dataModels": [
           {
-            "dataModelName": "mdmfarhorizon"
+            "dataModelName": "mdmpurchaseorder"
           }
         ],
         "stagings": [
           {
             "connectorName": "nlp",
-            "stagingName": "product"
+            "stagingName": "purchaseorder"
           }
         ]
       }

@@ -1,14 +1,15 @@
 {
   "defaults": {
-    "cronExpressions": [
-      "0 */5 0 ? * * *"
-    ],
+    "cronExpressions": [],
     "prepareScripts": [
       "prepare.sql"
     ]
   },
   "pipelines": [
     {
+      "cronExpressions": [
+        "0 */5 0 ? * * *"
+      ],
       "pipelineName": "product_main",
       "pipelineDescription": "Pipeline for the product table, that uses staging nlp_product",
       "outputDataModelName": "mdmproduct",
@@ -17,21 +18,21 @@
       "saveToUnified": true,
       "saveToRealtime": true,
       "sendToSubscriptions": true,
-      "useBatchNotification": true,
-      "cronExpressions": [
-        "0 0/5 * ? * MON-FRI *",
-        "0 0/15 * ? * SAT,SUN *"
-      ],
+      "saveToRealtime": true,
+      "timeZone": "America/Sao_Paulo",
       "prepareScripts": [
         "product_prepare.sql"
       ],
-      "processScript": "audproduct.csql",
+      "processScript": "datepk.csql",
       "sourceEntities": {
         "dataModels": [
+
           {
-            "dataModelName": "mdmproduct"
-          }
-        ],
+
+              "dataModelName": "mdmproduct"
+
+           }
+],
         "stagings": [
           {
             "connectorName": "nlp",
@@ -41,32 +42,35 @@
       }
     },
     {
-      "pipelineName": "farhorizon_main",
-      "pipelineDescription": "Pipeline for the product table again, for batch partial process scenario",
-      "outputDataModelName": "mdmfarhorizon",
-      "overlapDeltaMinutes": 72,
-      "saveToCds": true,
-      "saveToUnified": true,
-      "saveToRealtime": true,
-      "sendToSubscriptions": true,
-      "useBatchNotification": true,
       "cronExpressions": [
         "0 * * ? * *"
       ],
+      "pipelineName": "purchase_main",
+      "pipelineDescription": "Pipeline for the purchase table, that uses staging nlp_purchaseorder",
+      "outputDataModelName": "mdmpurchaseorder",
+      "overlapDeltaMinutes": 30,
+      "saveToCds": true,
+      "saveToUnified": true,
+      "saveToRealtime": true,
+      "sendToSubscriptions": false,
+      "timeZone": "America/Sao_Paulo",
       "prepareScripts": [
         "purchaseorder_prepare.sql"
       ],
-      "processScript": "farhorizon.sql",
+      "processScript": "purchaseorder.sql",
       "sourceEntities": {
         "dataModels": [
+
           {
-            "dataModelName": "mdmfarhorizon"
-          }
-        ],
+
+              "dataModelName": "mdmpurchaseorder"
+
+           }
+],
         "stagings": [
           {
             "connectorName": "nlp",
-            "stagingName": "product"
+            "stagingName": "purchaseorder"
           }
         ]
       }

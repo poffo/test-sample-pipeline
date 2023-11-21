@@ -8,9 +8,9 @@
   "pipelines": [
     {
       "cronExpressions": [
-        "0 */4 0 ? * * *"
+        "0 */2 0 ? * * *"
       ],
-      "pipelineName": "dougproduct_main",
+      "pipelineName": "product_main",
       "pipelineDescription": "Pipeline for the product table, that uses staging nlp_product",
       "outputDataModelName": "mdmproduct",
       "overlapDeltaMinutes": 120,
@@ -23,7 +23,7 @@
       "prepareScripts": [
         "product_prepare.sql"
       ],
-      "processScript": "product.sql",
+      "processScript": "mysticproduct.csql",
       "sourceEntities": {
         "dataModels": [
 
@@ -43,16 +43,16 @@
     },
     {
       "cronExpressions": [
-        "0 */4 0 ? * * *"
+        "0 * * ? * *"
       ],
-      "pipelineName": "dougpurchaseorder_main",
+      "pipelineName": "purchase_main",
       "pipelineDescription": "Pipeline for the purchase table, that uses staging nlp_purchaseorder",
       "outputDataModelName": "mdmpurchaseorder",
       "overlapDeltaMinutes": 30,
       "saveToCds": true,
       "saveToUnified": true,
       "saveToRealtime": true,
-      "sendToSubscriptions": true,
+      "sendToSubscriptions": false,
       "timeZone": "America/Sao_Paulo",
       "prepareScripts": [
         "purchaseorder_prepare.sql"
