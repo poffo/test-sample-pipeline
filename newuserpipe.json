@@ -7,6 +7,7 @@
       "saveToCds": true,
       "saveToRealtime": true,
       "outputDataModelName": "mdmuser",
+      "useBatchNotification": true,
       "saveToUnified": true,
       "cronExpressions": [
         "0 */5 0 ? * * *"
