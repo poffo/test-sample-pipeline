@@ -3,10 +3,10 @@ WITH usertable_mdmuser AS (
     stg.name AS mdmname, 
     stg.password AS mdmpassword, 
     stg.login AS mdmlogin, 
-    stg.phone AS mdmphonenumber, 
+    stg.phonenumber AS mdmphonenumber, 
     FALSE AS mdmshouldsendwelcomeemail, 
     stg.shouldcreateuser AS mdmshouldcreateuser, 
-    stg.active AS mdmisactive, 
+    stg.isactive AS mdmisactive, 
     TRUE AS mdmallowcaroluiaccess, 
     CONTAINS_SUBSTR(stg.gender, 'F') AS mdmDeleted --metadata--
   FROM 
