@@ -1,24 +1,37 @@
 WITH usertable_mdmuser AS (
-SELECT
-stg.name AS mdmname,
-stg.password AS mdmpassword,
-stg.email AS mdmlogin,
-stg.phone AS mdmphonenumber,
-FALSE AS mdmshouldsendwelcomeemail,
-stg.shouldcreateuser AS mdmshouldcreateuser,
-stg.active AS mdmisactive,
-TRUE AS mdmallowcaroluiaccess,
-CONTAINS_SUBSTR(stg.gender, 'F') AS mdmDeleted
---metadata--
-FROM (
-SELECT * EXCEPT(ranking)
-FROM (
-SELECT ROW_NUMBER() OVER (partition BY mdmId ORDER BY mdmCounterForEntity DESC) ranking, *
-FROM stg_nlp_usertable
---timestamp--
-)
-WHERE ranking = 1
-) AS stg
-)
-
-SELECT * FROM usertable_mdmuser
+  SELECT 
+    stg.name AS mdmname, 
+    stg.password AS mdmpassword, 
+    stg.login AS mdmlogin, 
+    stg.phone AS mdmphonenumber, 
+    FALSE AS mdmshouldsendwelcomeemail, 
+    stg.shouldcreateuser AS mdmshouldcreateuser, 
+    stg.active AS mdmisactive, 
+    TRUE AS mdmallowcaroluiaccess, 
+    CONTAINS_SUBSTR(stg.gender, 'F') AS mdmDeleted --metadata--
+  FROM 
+    (
+      SELECT 
+        * 
+      EXCEPT 
+        (ranking) 
+      FROM 
+        (
+          SELECT 
+            ROW_NUMBER() OVER (
+              partition BY mdmId 
+              ORDER BY 
+                mdmCounterForEntity DESC
+            ) ranking, 
+            * 
+          FROM 
+            stg_nlp_usertable --timestamp--
+            ) 
+      WHERE 
+        ranking = 1
+    ) AS stg
+) 
+SELECT 
+  * 
+FROM 
+  usertable_mdmuser
