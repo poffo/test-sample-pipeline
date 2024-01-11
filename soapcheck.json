@@ -17,11 +17,10 @@
       "saveToCds": true,
       "saveToUnified": true,
       "saveToRealtime": true,
-      "shouldFanOut":false,
       "sendToSubscriptions": false,
-      "useBatchNotification": true,
+      "useBatchNotification": false,
       "cronExpressions": [
-        "0 0/3 * ? * MON-FRI *",
+        "0 0/1 * ? * MON-FRI *",
         "0 0/2 * ? * SAT,SUN *"
       ],
       "processScript": "audproduct.csql",
@@ -48,7 +47,7 @@
       "saveToUnified": true,
       "saveToRealtime": true,
       "checkExistsDataToProcess": true,
-      "useBatchNotification": true,
+      "useBatchNotification": false,
       "sendToSubscriptions": true,
       "cronExpressions": [
         "0 * * ? * *"
@@ -70,7 +69,7 @@
     },
     {
       "pipelineName": "newfarhorizon_main",
-      "pipelineDescription": "Far Horizon Data Model, that uses staging nlp_product",
+      "pipelineDescription": "Far Horizon Data Model, that uses staging nlp_product & nlp purchaseorder",
       "outputDataModelName": "mdmfarhorizon",
       "overlapDeltaMinutes": 30,
       "saveToCds": true,
