@@ -82,7 +82,7 @@
               "stagings": [
                 {
                   "connectorName": "xpto",
-                  "stagingName": "product"
+                  "stagingName": "purchaseorder"
                 }
               ]
             }
