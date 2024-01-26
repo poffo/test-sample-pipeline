@@ -26,6 +26,60 @@
           }
         ]
       }
+    },
+    {
+      "pipelineName": "product_main",
+      "processScript": "xptoproduct.csql",
+      "sendToSubscriptions": true,
+      "saveToCds": true,
+      "saveToRealtime": true,
+      "outputDataModelName": "mdmproduct",
+      "useBatchNotification": false,
+      "saveToUnified": true,
+      "cronExpressions": [
+        "0 0 0 1 1 ? 2099"
+      ],
+      "overlapDeltaMinutes": 0,
+      "sourceEntities": {
+        "dataModels": [
+          {
+            "dataModelName": "mdmproduct"
+          }
+        ],
+        "stagings": [
+          {
+            "connectorName": "xpto",
+            "stagingName": "product"
+          }
+        ]
+      }
+    },
+    {
+      "pipelineName": "purchase_main",
+      "processScript": "xptopurchaseorder.csql",
+      "sendToSubscriptions": true,
+      "saveToCds": true,
+      "saveToRealtime": true,
+      "outputDataModelName": "mdmpurchaseorder",
+      "useBatchNotification": false,
+      "saveToUnified": true,
+      "cronExpressions": [
+        "0 0 0 1 1 ? 2099"
+      ],
+      "overlapDeltaMinutes": 0,
+      "sourceEntities": {
+        "dataModels": [
+          {
+            "dataModelName": "purchaseorders"
+          }
+        ],
+        "stagings": [
+          {
+            "connectorName": "xpto",
+            "stagingName": "purchaseorder"
+          }
+        ]
+      }
     }
   ]
 }
