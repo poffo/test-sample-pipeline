@@ -4,7 +4,7 @@ SELECT
     stg.productname as mdmname,
     stg.category as mdmdescription,
     stg.productprice as mdmunitvalue,
-    CONTAINS_SUBSTR(stg.productname, 'functionize') AS mdmDeleted
+    CONTAINS_SUBSTR(stg.productname, 'teste') AS mdmDeleted
     --metadata-v2--
 from stg_xpto_product as stg
 where 1=1
