@@ -1,5 +1,6 @@
 SELECT 
     stg.id as mdmbarcode,
+    stg.newcolumn as mdmdnewcolumn,
     stg.productname as mdmname,
     stg.category as mdmdescription,
     stg.productprice as mdmunitvalue,
