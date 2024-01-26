@@ -41,7 +41,7 @@
             "prepareScripts": [
               "product_prepare.sql"
             ],
-            "processScript": "audproduct.csql",
+            "processScript": "xptoproduct.csql",
             "sourceEntities": {
               "dataModels": [
                 {
@@ -50,7 +50,7 @@
               ],
               "stagings": [
                 {
-                  "connectorName": "nlp",
+                  "connectorName": "xpto",
                   "stagingName": "product"
                 }
               ]
@@ -59,7 +59,7 @@
           {
             "pipelineName": "farhorizon_main",
             "pipelineDescription": "Pipeline for the product table again, for batch partial process scenario",
-            "outputDataModelName": "mdmfarhorizon",
+            "outputDataModelName": "mdmpurchaseorder",
             "overlapDeltaMinutes": 72,
             "saveToCds": true,
             "saveToUnified": true,
@@ -72,11 +72,11 @@
             "prepareScripts": [
               "purchaseorder_prepare.sql"
             ],
-            "processScript": "farhorizon.sql",
+            "processScript": "xptopurchase.sql",
             "sourceEntities": {
               "dataModels": [
                 {
-                  "dataModelName": "mdmfarhorizon"
+                  "dataModelName": "purchaseorders"
                 }
               ],
               "stagings": [
