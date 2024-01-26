@@ -1,1 +1,31 @@
-
+{
+  "pipelines": [
+    {
+      "pipelineName": "new_user_main",
+      "processScript": "newuser.csql",
+      "sendToSubscriptions": true,
+      "saveToCds": true,
+      "saveToRealtime": true,
+      "outputDataModelName": "mdmuser",
+      "useBatchNotification": false,
+      "saveToUnified": true,
+      "cronExpressions": [
+        "0 0 0 1 1 ? 2099"
+      ],
+      "overlapDeltaMinutes": 0,
+      "sourceEntities": {
+        "dataModels": [
+          {
+            "dataModelName": "mdmuser"
+          }
+        ],
+        "stagings": [
+          {
+            "connectorName": "nlp",
+            "stagingName": "usertable"
+          }
+        ]
+      }
+    }
+  ]
+}
