@@ -72,7 +72,7 @@
             "prepareScripts": [
               "purchaseorder_prepare.sql"
             ],
-            "processScript": "xptopurchase.sql",
+            "processScript": "xptopurchaseorder.csql",
             "sourceEntities": {
               "dataModels": [
                 {
