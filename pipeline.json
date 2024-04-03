@@ -19,7 +19,7 @@
       "saveToRealtime": true,
       "shouldFanOut":false,
       "sendToSubscriptions": false,
-      "useBatchNotification": false,
+      "useBatchNotification": true,
       "tempTableRetentionPeriodDays": 1,
       "cronExpressions": [
         "0 0/3 * ? * MON-FRI *",
@@ -35,7 +35,7 @@
         "stagings": [
           {
             "connectorName": "nlp",
-            "stagingName": "newproduct"
+            "stagingName": "product"
           }
         ]
       }
