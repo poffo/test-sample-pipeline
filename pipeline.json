@@ -35,7 +35,7 @@
         "stagings": [
           {
             "connectorName": "nlp",
-            "stagingName": "newproduct"
+            "stagingName": "product"
           }
         ]
       }
