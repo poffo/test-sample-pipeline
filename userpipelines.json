@@ -2,7 +2,6 @@
   "pipelines": [
     {
       "pipelineName": "user_main",
-      "carolAppName": "usertestingapp",
       "pipelineDescription": "Pipeline for user creation Through SQL Process",
       "processScript": "mdmuser.csql",
       "sendToSubscriptions": true,
