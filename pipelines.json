@@ -51,6 +51,7 @@
       "sendToSubscriptions": true,
       "useBatchNotification": false,
       "cronExpressions": [
+         "0 0 1 ? * SAT,SUN *"
       ],
       "prepareScripts": [
         ""
