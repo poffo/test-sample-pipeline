@@ -41,6 +41,29 @@
       }
     },
     {
+      "pipelineName": "user",
+      "pipelineDescription": "User",
+      "outputDataModelName": "mdmuser",
+      "overlapDeltaMinutes": 120,
+      "saveToCds": true,
+      "saveToUnified": true,
+      "saveToRealtime": true,
+      "sendToSubscriptions": true,
+      "useBatchNotification": false,
+      "cronExpressions": [
+      ],
+      "prepareScripts": [
+        ""
+      ],
+      "processScript": "mdmuser.csql",
+      "sourceEntities": {
+        "dataModels": [
+        ],
+        "stagings": [
+        ]
+      }
+    },
+    {
       "pipelineName": "farhorizon_main",
       "pipelineDescription": "Pipeline for the product table again, for batch partial process scenario",
       "outputDataModelName": "mdmfarhorizon",
